@@ -1,0 +1,47 @@
+# params of reproduction
+seed: 0
+
+# params of dataset
+dataset: "Digit"
+data_root: "data/"
+transform_type: "simple"
+all_use: True
+
+# params of DataLoader
+samples_per_gpu: 64  # batch_size
+samples_per_gpu_test: 64
+workers_per_gpu: 4  # num_workers
+
+# params of optimizer
+optimizer:
+  type: "SGD"
+  lr: 0.01
+  weight_decay: 0.0001
+  momentum: 0.9
+  nesterov: True
+
+# params of learning rate scheduler
+lr_scheduler:
+  type: "InvLR"
+  gamma: 0.0003
+  power: 0.75
+# lr_scheduler:
+#   type: "InvLR"
+#   gamma: 10
+#   power: 0.75
+#   maxp: 3390
+
+# params of training
+loops: 1
+max_epochs: 5
+warmup_epochs: 0
+
+# params of checkpoint and logging
+# checkpoint: "log/20201211_192737/best_model.pth.tar"
+save_interval: 500  # save checkpoint per n iterations
+# test_interval: 500  # test per n iterations
+test_interval_epoch: 1.0  # test per n iterations
+log_interval: 50  # log infos per n iterations
+
+# method-specified params
+use_val: False

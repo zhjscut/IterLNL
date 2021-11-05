@@ -1,0 +1,15 @@
+__pycache__/
+debug/
+data/
+*.txt
+*.log
+events.out*
+*.pth
+*.pth.tar
+*.npy
+*.png
+*.jpg
+modules/
+c*.sh
+tmp.sh
+*.pdf

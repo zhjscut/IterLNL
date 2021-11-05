@@ -1,0 +1,65 @@
+# params of reproduction
+seed: 0
+
+# params of network
+arch: "resnet50"
+pretrained: True
+
+# params of dataset
+dataset: "Office31"
+data_root: "data/"
+transform_type: "simple"
+
+# params of DataLoader
+samples_per_gpu: 64  # batch_size
+samples_per_gpu_test: 64
+workers_per_gpu: 4  # num_workers
+
+# params of optimizer
+optimizer:
+  type: "SGD"
+  lr: 0.003
+  momentum: 0.9
+  weight_decay: 0.0005
+  nesterov: True
+  # parameter-wise setting
+  paramwise_cfg:
+    G: 
+      lr_mult: 0.1
+    F:
+      lr_mult: 1.0
+
+# params of learning rate scheduler
+lr_scheduler:
+  type: "InvLR"
+  gamma: 0.0003
+  power: 0.75
+
+# params of training
+loops: 10
+max_epochs: 30
+warmup_epochs: 1
+
+# params of checkpoint and logging
+model_dir: ""
+save_interval: 50000  # save checkpoint per n iterations
+# test_interval: 500  # test per n iterations
+test_interval_epoch: 1.0  # test per n epochs
+log_interval: 20  # log infos per n iterations
+
+# method-specified params
+categorial_sample: True
+# normal sample filter configs
+# categorial_sample: False
+# beta: 0.9  # moving averaged coefficient
+# thresh_mode: "fix"
+# sample_filter_mode: "batch"
+
+use_val: False
+thr: 0.9
+quad_k: 1.0
+pos_end: 0.5
+k_tao: 1.0
+pow: 1.0
+len_buffer: 100
+coeff_lossGD: 0.0
